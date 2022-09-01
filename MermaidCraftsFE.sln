@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidCraftsFE.Server", "MermaidCraftsFE\Server\MermaidCraftsFE.Server.csproj", "{4637C0E3-122A-471A-9A27-036101083006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidCraftsFE.Server", "MermaidCraftsFE\Server\MermaidCraftsFE.Server.csproj", "{4637C0E3-122A-471A-9A27-036101083006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidCraftsFE.Client", "MermaidCraftsFE\Client\MermaidCraftsFE.Client.csproj", "{74601227-9D23-4A53-9198-E72B6E6FA1B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidCraftsFE.Client", "MermaidCraftsFE\Client\MermaidCraftsFE.Client.csproj", "{74601227-9D23-4A53-9198-E72B6E6FA1B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MermaidCraftsFE.Shared", "MermaidCraftsFE\Shared\MermaidCraftsFE.Shared.csproj", "{41E51275-5443-4336-9667-286D9F3A25F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidCraftsFE.Shared", "MermaidCraftsFE\Shared\MermaidCraftsFE.Shared.csproj", "{41E51275-5443-4336-9667-286D9F3A25F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

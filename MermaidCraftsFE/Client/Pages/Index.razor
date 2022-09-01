@@ -1,5 +1,17 @@
 ﻿@page "/"
+@page "/{categoryUrl}"
+@inject IProductService productService
 
 <PageTitle>Mermaid Crafts</PageTitle>
 
 <ProductList />
+
+@code {
+    [Parameter]
+    public string? categoryUrl { get; set; } = null;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await productService.GetProductsAsync(categoryUrl);
+    }
+}

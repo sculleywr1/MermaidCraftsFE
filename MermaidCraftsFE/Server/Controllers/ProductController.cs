@@ -23,5 +23,19 @@ namespace MermaidCraftsFE.Server.Controllers
             var result = await _productService.GetProductsAsync();
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ServiceResponse<Product>>> GetProduct(int id)
+        {
+            var result = await _productService.GetProductAsync(id);
+            return Ok(result);
+        }
+
+        [HttpGet("category/{categoryUrl}")]
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProductsByCategory(string categoryUrl)
+        {
+            var result = await _productService.GetProductsByCategoryAsync(categoryUrl);
+            return Ok(result);
+        }
     }
 }

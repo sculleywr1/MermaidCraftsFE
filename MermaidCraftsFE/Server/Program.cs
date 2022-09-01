@@ -1,4 +1,5 @@
 global using MermaidCraftsFE.Shared;
+using MermaidCraftsFE.Server.DAO.CategoryService;
 using MermaidCraftsFE.Server.DAO.ProductService;
 using MermaidCraftsFE.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -19,6 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
