@@ -18,6 +18,7 @@ namespace MermaidCraftsFE.Server.Controllers
             _categoryService = categoryService;
         }
 
+        // Gets all categories.
         [HttpGet]
         public async Task<ActionResult<ServiceResponse<List<Category>>>> GetCategories()
         {

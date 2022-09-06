@@ -3,15 +3,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MermaidCraftsFE.Server.DAO.ProductService
 {
+    // Handles all the logic for retrieving products from the database.
     public class ProductService : IProductService
+    
     {
+        // Private data context readonly.
         private readonly DataContext _context;
 
+        // Sets the context for the service.
         public ProductService(DataContext context)
         {
             _context = context;
         }
 
+        // Gets a product by its ID.
         public async Task<ServiceResponse<Product>> GetProductAsync(int productId)
         {
             var response = new ServiceResponse<Product>();
@@ -28,6 +33,7 @@ namespace MermaidCraftsFE.Server.DAO.ProductService
             return response;
         }
 
+        // Gets all products.
         public async Task<ServiceResponse<List<Product>>> GetProductsAsync()
         {
             var response = new ServiceResponse<List<Product>>
@@ -37,6 +43,7 @@ namespace MermaidCraftsFE.Server.DAO.ProductService
             return response;
         }
 
+        // Get a list of products by category.
         public async Task<ServiceResponse<List<Product>>> GetProductsByCategoryAsync(string categoryUrl)
         {
             var response = new ServiceResponse<List<Product>>

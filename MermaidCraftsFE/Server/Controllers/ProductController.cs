@@ -10,13 +10,16 @@ namespace MermaidCraftsFE.Server.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        // private readonly IProductService
         private readonly IProductService _productService;
 
+        // Sets the product service to be used by the controller.
         public ProductController(IProductService productService)
         {
             _productService = productService;
         }
        
+       // Gets all products.
         [HttpGet]
         public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProducts()
         {
@@ -24,6 +27,7 @@ namespace MermaidCraftsFE.Server.Controllers
             return Ok(result);
         }
 
+        // Gets a product by its ID.
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceResponse<Product>>> GetProduct(int id)
         {
@@ -31,6 +35,7 @@ namespace MermaidCraftsFE.Server.Controllers
             return Ok(result);
         }
 
+        // Get products by category url.
         [HttpGet("category/{categoryUrl}")]
         public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProductsByCategory(string categoryUrl)
         {
