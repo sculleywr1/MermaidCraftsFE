@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\MermaidCraftsFE.Client.csproj" />
-    <ProjectReference Include="..\Shared\MermaidCraftsFE.Shared.csproj" />
   </ItemGroup>
 
 

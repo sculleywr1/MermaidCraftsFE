@@ -1,4 +1,4 @@
-﻿using MermaidCraftsFE.Shared;
+﻿using MermaidCraftsFE.Client.Models;
 using System.Net.Http.Json;
 
 namespace MermaidCraftsFE.Client.Services.ProductService

@@ -1,5 +1,4 @@
-﻿using MermaidCraftsFE.Shared;
-using Microsoft.AspNetCore.Server.IIS.Core;
+﻿using Microsoft.AspNetCore.Server.IIS.Core;
 using Microsoft.EntityFrameworkCore;
 
 namespace MermaidCraftsFE.Server.Data

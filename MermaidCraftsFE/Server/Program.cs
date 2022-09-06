@@ -1,4 +1,4 @@
-global using MermaidCraftsFE.Shared;
+global using MermaidCraftsFE.Server.Models;
 using MermaidCraftsFE.Server.DAO.CategoryService;
 using MermaidCraftsFE.Server.DAO.ProductService;
 using MermaidCraftsFE.Server.Data;

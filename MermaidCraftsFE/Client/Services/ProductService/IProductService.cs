@@ -1,4 +1,4 @@
-﻿using MermaidCraftsFE.Shared;
+﻿using MermaidCraftsFE.Client.Models;
 
 namespace MermaidCraftsFE.Client.Services.ProductService
 {
