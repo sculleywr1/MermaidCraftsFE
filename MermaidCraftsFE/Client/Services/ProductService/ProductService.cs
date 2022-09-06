@@ -18,7 +18,7 @@ namespace MermaidCraftsFE.Client.Services.ProductService
         public string Message { get; set; } = "Loading Products...";
 
         // Action Products changed.
-        public event Action ProductsChanged;
+        public event Action? ProductsChanged;
 
         // Get a product by the specified product ID.
         public async Task<ServiceResponse<Product>> GetProductAsync(int id)

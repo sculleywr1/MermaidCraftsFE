@@ -16,7 +16,7 @@ namespace MermaidCraftsFE.Client.Services.CategoryService
             _httpClient = httpClient;
         }
         // Gets the value of the categories property.
-        public List<Category> Categories { get; set; }
+        public List<Category>? Categories { get; set; }
 
         // Gets a list of all categories.
         public async Task GetCategoriesAsync()

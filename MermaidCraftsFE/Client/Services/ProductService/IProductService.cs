@@ -4,7 +4,7 @@ namespace MermaidCraftsFE.Client.Services.ProductService
 {
     public interface IProductService
     {
-        event Action ProductsChanged;
+        event Action? ProductsChanged;
         List<Product> Products { get; set; }
         string Message { get; set; }
         Task GetProductsAsync(string? categoryUrl = null);
