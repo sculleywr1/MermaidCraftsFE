@@ -1,9 +1,11 @@
 global using MermaidCraftsFE.Server.Models;
+using MermaidCraftsFE.Server.DAO.CartService;
 using MermaidCraftsFE.Server.DAO.CategoryService;
 using MermaidCraftsFE.Server.DAO.ProductService;
 using MermaidCraftsFE.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using MermaidCraftsFE.Server.DAO.CartService;
 
 //var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +33,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 var app = builder.Build();
 
