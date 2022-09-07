@@ -5,7 +5,17 @@ using MermaidCraftsFE.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("https://mermaidcrafts.azurewebsites.net/");
+        });
+});
 
 // Add services to the container.
 
@@ -45,6 +55,8 @@ app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 
 app.MapRazorPages();

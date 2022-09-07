@@ -31,8 +31,8 @@ namespace MermaidCraftsFE.Client.Services.ProductService
         {
             // Gets a list of products. Two possibilities exist for this method: either it gets all of the products, or, if the URL is for a category, it gets all products in the category from the server.
             var result = categoryUrl == null ?
-                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product") :
-                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>($"api/product/category/{categoryUrl}");
+                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>("https://mermaidcraftsfeserverapi.azure-api.net/api/products") :
+                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>($"https://mermaidcraftsfeserverapi.azure-api.net/api/product/category/{categoryUrl}");
             if (result != null && result.Data != null)
             {
                 Products = result.Data;
@@ -44,13 +44,13 @@ namespace MermaidCraftsFE.Client.Services.ProductService
 
         public async Task<List<string>> getProductSearchSuggestions(string searchText)
         {
-            var result = await _httpClient.GetFromJsonAsync<ServiceResponse<List<string>>>($"api/product/searchsuggestions/{searchText}");
+            var result = await _httpClient.GetFromJsonAsync<ServiceResponse<List<string>>>($"https://mermaidcraftsfeserverapi.azure-api.net/api/product/searchsuggestions/{searchText}");
             return result.Data;
         }
 
         public async Task SearchProducts(string searchText)
         {
-            var result = await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>($"api/product/search/{searchText}");
+            var result = await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>($"https://mermaidcraftsfeserverapi.azure-api.net/api/product/search/{searchText}");
             if (result != null && result.Data != null)
             {
                 Products = result.Data;

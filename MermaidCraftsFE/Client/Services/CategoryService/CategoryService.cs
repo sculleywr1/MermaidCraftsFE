@@ -21,7 +21,7 @@ namespace MermaidCraftsFE.Client.Services.CategoryService
         // Gets a list of all categories.
         public async Task GetCategoriesAsync()
         {
-            var response = await _httpClient.GetFromJsonAsync<ServiceResponse<List<Category>>>("api/Category");
+            var response = await _httpClient.GetFromJsonAsync<ServiceResponse<List<Category>>>("https://mermaidcraftsfeserverapi.azure-api.net/api/Category");
             // Sets response. Data. Categories.
             if (response != null && response.Data != null)
             {
