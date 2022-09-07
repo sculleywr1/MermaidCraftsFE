@@ -1,0 +1,15 @@
+﻿@inject NavigationManager navigationManager
+
+<button @onclick="GoToHome"
+    class="btn btn-outline-primary home-button"
+>
+    Mermaid Crafts
+</button>
+
+@code {
+    private void GoToHome()
+    {
+        navigationManager.NavigateTo("");
+    }
+
+}

@@ -68,3 +68,8 @@ a, .btn-link {
     color: green;
 }
 
+.nav-link {
+    font-family: 'Dancing Script', cursive;
+    font-size: x-large;
+    font-weight: bold;
+}

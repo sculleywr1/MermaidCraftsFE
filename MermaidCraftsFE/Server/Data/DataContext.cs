@@ -56,7 +56,8 @@ namespace MermaidCraftsFE.Server.Data
                     Title = "Teddy Bear",
                     Description = "A teddy bear made with baby soft yarn, perfect for your child",
                     ImageUrl = "https://images.squarespace-cdn.com/content/v1/5e12aa9f8c03f756cbec18fc/1607712216490-NN3SB29TDH8A2RP24HLY/classic-crochet-teddy-bear.jpg?format=1000w",
-                    CategoryId = 1
+                    CategoryId = 1,
+                    Featured = true
                 },
                 new Product
                 {
@@ -64,7 +65,8 @@ namespace MermaidCraftsFE.Server.Data
                     Title = "Baby Shirt",
                     Description = "A shirt made with baby soft yarn in sizes from 2t-5t",
                     ImageUrl = "https://i.ytimg.com/vi/HohJhrZFr74/maxresdefault.jpg",
-                    CategoryId = 2
+                    CategoryId = 2,
+                    Featured = true
                 },
                 new Product
                 {
@@ -72,7 +74,8 @@ namespace MermaidCraftsFE.Server.Data
                     Title = "Baby Blanket",
                     Description = "A small blanket made with baby soft yarn, perfect for decorating baby's nursery. (disclaimer, do not use with children below 6 months. Please use safe sleep practices!)",
                     ImageUrl = "https://www.anniedesigncrochet.com/wp-content/uploads/2020/04/lace-shell-crochet-baby-blanket-9.jpg",
-                    CategoryId = 3
+                    CategoryId = 3,
+                    Featured = true
                 },
                 new Product
                 {
@@ -80,7 +83,8 @@ namespace MermaidCraftsFE.Server.Data
                     Title = "Throw Blanket",
                     Description = "A decorative and comfortable throw blanket made with up to three colors of your choice",
                     ImageUrl = "https://www.mamainastitch.com/wp-content/uploads/2018/10/Fall-Easy-Beginner-blanket-pattern-crochet.jpg",
-                    CategoryId = 3
+                    CategoryId = 3,
+                    Featured = true
                 },
                 new Product
                 {
@@ -88,7 +92,8 @@ namespace MermaidCraftsFE.Server.Data
                     Title = "Bed Blanket",
                     Description = "A decorative and comfortable blanket for any size bed up to three colors of your choice",
                     ImageUrl = "https://undergroundcrafter.com/wp-content/uploads/2015/03/Mod-9-Patch-Blanket-5-of-9.jpg",
-                    CategoryId = 3
+                    CategoryId = 3,
+                    Featured = true
                 }
             );
             modelBuilder.Entity<ProductVariant>().HasData(

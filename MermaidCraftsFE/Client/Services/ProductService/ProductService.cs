@@ -31,7 +31,7 @@ namespace MermaidCraftsFE.Client.Services.ProductService
         {
             // Gets a list of products. Two possibilities exist for this method: either it gets all of the products, or, if the URL is for a category, it gets all products in the category from the server.
             var result = categoryUrl == null ?
-                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product") :
+                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product/featured") :
                 await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>($"api/product/category/{categoryUrl}");
             if (result != null && result.Data != null)
             {
