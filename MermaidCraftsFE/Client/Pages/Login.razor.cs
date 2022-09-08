@@ -4,6 +4,7 @@ using MermaidCraftsFE.Client.Models;
 using MermaidCraftsFE.Client.Services.AuthService;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using MermaidCraftsFE.Client.Services.CartService;
 
 namespace MermaidCraftsFE.Client.Pages
 {
@@ -13,6 +14,7 @@ namespace MermaidCraftsFE.Client.Pages
         [Inject] protected ILocalStorageService LocalStorageService { get; set; }
         [Inject] protected NavigationManager NavigationManager { get; set; }
         [Inject] protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+        [Inject] protected ICartService cartService { get; set; }
 
         protected UserLogin user = new UserLogin();
         protected string errorMessage = string.Empty;
@@ -36,6 +38,8 @@ namespace MermaidCraftsFE.Client.Pages
                 errorMessage = string.Empty;
                 await LocalStorageService.SetItemAsync("authToken", result.Data);
                 await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                await cartService.StoreCartItems(true);
+                await cartService.GetCartItemsCount();
                 NavigationManager.NavigateTo(returnUrl);
             }
             else

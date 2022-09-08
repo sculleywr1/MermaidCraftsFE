@@ -1,4 +1,5 @@
 ﻿using Blazored.LocalStorage;
+using MermaidCraftsFE.Client.Services.CartService;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 
@@ -9,6 +10,7 @@ namespace MermaidCraftsFE.Client.Shared
         [Inject] ILocalStorageService LocalStorage { get; set; }
         [Inject] AuthenticationStateProvider AuthenticationStateProvider { get; set; }
         [Inject] protected NavigationManager navigationManager { get; set; }
+        [Inject] protected ICartService CartService { get; set; }
 
         protected bool showUserMenu = false;
 
@@ -28,6 +30,7 @@ namespace MermaidCraftsFE.Client.Shared
         protected async Task Logout()
         {
             await LocalStorage.RemoveItemAsync("authToken");
+            await CartService.GetCartItemsCount();
             await AuthenticationStateProvider.GetAuthenticationStateAsync();
             navigationManager.NavigateTo("");
         }

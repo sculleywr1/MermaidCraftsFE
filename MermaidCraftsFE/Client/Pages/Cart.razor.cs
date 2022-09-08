@@ -24,14 +24,11 @@ namespace MermaidCraftsFE.Client.Pages
 
         public async Task LoadCart()
         {
-            if ((await CartService.GetCartItems()).Count == 0)
+            await CartService.GetCartItemsCount();
+            cartProducts = await CartService.GetCartProducts();
+            if (cartProducts == null || cartProducts.Count == 0)
             {
-                message = "Your cart is empty.";
-                cartProducts = new List<CartProductResponse>();
-            }
-            else
-            {
-                cartProducts = await CartService.GetCartProducts();
+                message = "Your cart is empty";
             }
         }
 

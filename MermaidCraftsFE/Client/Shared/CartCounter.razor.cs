@@ -12,8 +12,8 @@ namespace MermaidCraftsFE.Client.Shared
 
         protected int GetCartItemsCount()
         {
-            var cart = LocalStorage.GetItem<List<CartItem>>("cart");
-            return cart != null ? cart.Count : 0;
+            var cart = LocalStorage.GetItem<int>("cartItemsCount");
+            return cart;
         }
 
         protected override void OnInitialized()

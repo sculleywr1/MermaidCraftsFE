@@ -14,7 +14,7 @@
     </div>
     <div class="mb-3">
         <label for="password">Password</label>
-        <InputText id="password" @bind-Value="user.Password" class="form-control" />
+        <InputText type="password" id="password" @bind-Value="user.Password" class="form-control" />
         <ValidationMessage For="@(() => user.Password)" />
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
