@@ -1,16 +1,29 @@
 ﻿using MermaidCraftsFE.Client.Models;
+using MermaidCraftsFE.Client.Services.AuthService;
 using Microsoft.AspNetCore.Components;
 
 namespace MermaidCraftsFE.Client.Pages
 {
     public class RegisterBase : ComponentBase
     {
-
+        [Inject] protected IAuthService AuthService { get; set; }
         public UserRegister user = new UserRegister();
 
-        public void HandleRegistration()
+        protected string message = string.Empty;
+        protected string messageCssClass = string.Empty;
+
+        protected async Task HandleRegistration()
         {
-            Console.WriteLine($"Register User with the Email {user.Email}");
+            var result = await AuthService.Register(user);
+            message = result.Message;
+            if (result.Success)
+            {
+                messageCssClass = "text-success";
+            }
+            else
+            {
+                messageCssClass = "text-danger";
+            }
         }
 
     }

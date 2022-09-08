@@ -1,5 +1,6 @@
 using Blazored.LocalStorage;
 using MermaidCraftsFE.Client;
+using MermaidCraftsFE.Client.Services.AuthService;
 using MermaidCraftsFE.Client.Services.CartService;
 using MermaidCraftsFE.Client.Services.CategoryService;
 using MermaidCraftsFE.Client.Services.ProductService;
@@ -16,5 +17,6 @@ builder.Services.AddScoped(sp => new HttpClient() { BaseAddress = new Uri(builde
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 await builder.Build().RunAsync();
