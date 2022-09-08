@@ -1,36 +1,15 @@
-﻿@page "/"
+﻿@inherits IndexBase
+@page "/"
 @page "/search/{searchText}/{page:int}"
 @page "/{categoryUrl}"
-@inject IProductService productService
 
 <PageTitle>Mermaid Crafts</PageTitle>
 
-@if (searchText == null && categoryUrl == null)
+@if (SearchText == null && CategoryUrl == null)
 {
     <FeaturedProducts />
 }
 else
 {
     <ProductList />
-}
-
-@code {
-    [Parameter]
-    public string? categoryUrl { get; set; } = null;
-    [Parameter]
-    public string? searchText { get; set; } = null;
-    [Parameter]
-    public int Page { get; set; } = 1;
-
-    protected override async Task OnParametersSetAsync()
-    {
-        if (searchText != null)
-        {
-            await productService.SearchProducts(searchText, Page);
-        }
-        else
-        {
-            await productService.GetProductsAsync(categoryUrl);
-        }
-    }
 }

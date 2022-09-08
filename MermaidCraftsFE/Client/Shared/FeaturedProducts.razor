@@ -1,5 +1,4 @@
-﻿@inject IProductService productService
-@implements IDisposable
+﻿@inherits FeaturedProductsBase
 
 <center><h2>Featured Products!</h2></center>
 
@@ -30,16 +29,4 @@ else
             }
         }
     </div>
-}
-
-@code {
-    protected override void OnInitialized()
-    {
-        productService.ProductsChanged += StateHasChanged;
-    }
-
-    public void Dispose()
-    {
-        productService.ProductsChanged -= StateHasChanged;
-    }
 }

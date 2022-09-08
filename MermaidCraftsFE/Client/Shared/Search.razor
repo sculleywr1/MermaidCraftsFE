@@ -1,5 +1,4 @@
-﻿@inject NavigationManager navigationmanager
-@inject IProductService productService
+﻿@inherits SearchBase
 
 <div class="input-group">
     <input  @bind-value="searchText"
@@ -23,34 +22,3 @@
         </button>
     </div>
 </div>
-
-@code {
-    private string searchText = string.Empty;
-    private List<string> suggestions = new List<string>();
-    protected ElementReference searchInput;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await searchInput.FocusAsync();
-        }
-    }
-
-    public void SearchProducts()
-    {
-        navigationmanager.NavigateTo($"search/{searchText}/1");
-    }
-
-    public async Task HandleSearch(KeyboardEventArgs args)
-    {
-        if(args.Key == null || args.Key.Equals("Enter"))
-        {
-            SearchProducts();
-        }
-        else if (searchText.Length > 1)
-        {
-            suggestions = await productService.getProductSearchSuggestions(searchText);
-        }
-    }
-}

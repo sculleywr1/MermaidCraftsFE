@@ -1,6 +1,6 @@
-﻿@page "/product/{id:int}"
-@inject IProductService productService
-@inject ICartService cartService
+﻿@inherits ProductDetailsBase
+@page "/product/{id:int}"
+
 
 @if(product == null)
 {
@@ -47,50 +47,3 @@ else
     </div>
 }
 
-@code {
-    private Product? product = null;
-    private string message = string.Empty;
-    private int currentTypeId = 1;
-
-    [Parameter]
-    public int Id { get; set; }
-
-    protected override async Task OnParametersSetAsync()
-    {
-
-        message = "Loading Product...";
-        var result = await productService.GetProductAsync(Id);
-
-        if (!result.Success)
-        {
-            message = result.Message;
-        }
-        else
-        {
-            product = result.Data;
-            if (product.Variants.Count > 0)
-            {
-                currentTypeId = product.Variants[0].ProductTypeId;
-            }
-        }
-    }
-
-    private ProductVariant GetSelectedVariant()
-    {
-        var variant = product.Variants.FirstOrDefault(v => v.ProductTypeId == currentTypeId);
-        return variant;
-    }
-
-    public async Task AddtoCart()
-    {
-        var productVariant = GetSelectedVariant();
-        var cartItem = new CartItem
-            {
-                ProductId = productVariant.ProductId,
-                ProductTypeId = productVariant.ProductTypeId
-            };
-
-        await cartService.AddToCart(cartItem);
-    }
-
-}
