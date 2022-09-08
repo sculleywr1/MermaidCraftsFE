@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MermaidCraftsFE.Client.Models
+namespace MermaidCraftsFE.Server.Models
 {
     public class UserRegister
     {
