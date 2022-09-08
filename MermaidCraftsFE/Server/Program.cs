@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using MermaidCraftsFE.Server.DAO.AuthService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using MermaidCraftsFE.Server.DAO.OrderService;
 
 //var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
@@ -36,6 +37,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 //Authentication settings for JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
