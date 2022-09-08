@@ -115,5 +115,28 @@ namespace MermaidCraftsFE.Server.DAO.AuthService
                 return computedHash.SequenceEqual(passwordHash);
             }
         }
+
+        public async Task<ServiceResponse<bool>> ChangePassword(int userId, string newPassword)
+        {
+            var user = await _context.Users.FindAsync(userId);
+
+            if (user == null)
+            {
+                return new ServiceResponse<bool>
+                {
+                    Success = false,
+                    Message = "User not found."
+                };
+            }
+
+            CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passWordSalt);
+
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passWordSalt;
+
+            await _context.SaveChangesAsync();
+
+            return new ServiceResponse<bool> { Data = true, Message = "Your password has been changed." };
+        }
     }
 }
