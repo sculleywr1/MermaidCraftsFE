@@ -17,7 +17,7 @@
     </div>
     <div class="mb-3">
         <label for="confirmPassword">Confirm Password</label>
-        <InputText id="confirmPassword" @bind-Value="user.PasswordConfirmation" class="form-control" />
+        <InputText type="password" id="confirmPassword" @bind-Value="user.PasswordConfirmation" class="form-control" />
         <ValidationMessage For="@(() => user.PasswordConfirmation)" />
     </div>
     <button type="submit" class="btn btn-primary">Register</button>

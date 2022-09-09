@@ -3,6 +3,7 @@ using MermaidCraftsFE.Client;
 using MermaidCraftsFE.Client.Services.AuthService;
 using MermaidCraftsFE.Client.Services.CartService;
 using MermaidCraftsFE.Client.Services.CategoryService;
+using MermaidCraftsFE.Client.Services.OrderService;
 using MermaidCraftsFE.Client.Services.ProductService;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -19,6 +20,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddOptions();
 builder.Services.AddAuthorizationCore();

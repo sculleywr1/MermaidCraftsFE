@@ -1,18 +1,24 @@
 ﻿using MermaidCraftsFE.Client.Models;
 using MermaidCraftsFE.Client.Services.CartService;
+using MermaidCraftsFE.Client.Services.OrderService;
 using Microsoft.AspNetCore.Components;
 
 namespace MermaidCraftsFE.Client.Pages
 {
     public class CartBase : ComponentBase
     {
-        public List<CartProductResponse> cartProducts = null;
-        public string message = "Loading cart...";
+        //properties
+        protected List<CartProductResponse> cartProducts = null;
+        protected string message = "Loading cart...";
+        protected bool orderPlaced = false;
+        //Injections
         [Inject] ICartService? CartService { get; set; }
+        [Inject] IOrderService? OrderService { get; set; }
         
 
         protected override async Task OnInitializedAsync()
         {
+            orderPlaced = false;
             await LoadCart();
         }
 
@@ -42,5 +48,11 @@ namespace MermaidCraftsFE.Client.Pages
             await CartService.UpdateQuantity(product);
         }
 
+        protected async Task PlaceOrder()
+        {
+            await OrderService.PlaceOrder();
+            await CartService.GetCartItemsCount();
+            orderPlaced = true;
+        }
     }
 }
